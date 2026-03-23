@@ -9,7 +9,7 @@ import LoginScreen from './screens/LoginScreen';
 import SuggestionsScreen from './screens/SuggestionsScreen';
 import MealCard from './components/MealCard';
 import AdminScreen from './screens/AdminScreen';
-
+import PremiumPopup from './popups/coming_soon_a'; 
 
 const WeekPlannerScreen = ({ user, maxMealBudget, trackActivity, mealHistory }) => {
   const [plannedMeals, setPlannedMeals] = useState([]);
@@ -1429,6 +1429,10 @@ const MealPlannerApp = () => {
 
           <BottomNav setCurrentScreen={setCurrentScreen} trackActivity={trackActivity} />
           <RecipeModal />
+          <PremiumPopup
+  userId={user?.id}
+  username={user?.name || user?.email}  
+/>
           <TermsModal isOpen={showTermsModal} onAccept={handleAcceptTerms} />
           <DiscoveryModal
             isOpen={showDiscoveryModal}
